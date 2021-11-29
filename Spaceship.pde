@@ -32,5 +32,6 @@ public class Spaceship extends Floater
    myCenterY = (Math.random()*700);
    myXspeed= 0;
    myYspeed = 0;
+   myPointDirection = Math.random()*200;
  }
 }
