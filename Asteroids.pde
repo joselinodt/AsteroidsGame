@@ -1,12 +1,11 @@
 public class Asteroids extends Floater
 {
-  double rotSpeed, mySize;
-  int myColor;
+  protected double rotSpeed, mySize;
+  protected int myColor;
   public Asteroids(){
     corners = 5;
-    xCorners = new int[]{-11,7,13,6,(int)(Math.random()*22)-22};
-    yCorners = new int[]{-8,-8,0,(int)(Math.random()*10),8};
-    myColor = color(255);
+    xCorners = new int[]{(int)(Math.random()*12)-11,7,13,6,(int)(Math.random()*22)-22};
+    yCorners = new int[]{(int)(Math.random()*9)-8,-8,0,(int)(Math.random()*10),8};
     myCenterX = (float)(Math.random()*800);
     myCenterY = (float)(Math.random()*800);
     myXspeed = 1;
@@ -14,7 +13,7 @@ public class Asteroids extends Floater
     myPointDirection = 0; 
     rotSpeed = 1;
     mySize = 20;
-    myColor = color(139,69,19);
+    myColor = color(255);
   }
   public double getX(){
     return myCenterX;
@@ -37,7 +36,7 @@ public class Asteroids extends Floater
   }
    public void show ()  //Draws the floater at the current position  
   {             
-    fill(myColor);   
+    fill(0);   
     stroke(myColor);    
     
     //translate the (x,y) center of the ship to the correct position
@@ -62,4 +61,3 @@ public class Asteroids extends Floater
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }   
 }
-
