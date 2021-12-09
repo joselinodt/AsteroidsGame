@@ -4,6 +4,7 @@ ArrayList <Asteroids> rock;
 ArrayList <Bullet> shot = new ArrayList <Bullet>();
 int score = 0;
 int health = 100;
+int ammo = 300;
 public void setup() 
 {
   size(800, 800);
@@ -42,7 +43,18 @@ public void draw()
           break;
         }
       }
+
     if (health == 0)
+    {
+      noLoop();
+      textAlign(CENTER);
+      textSize(50);
+      fill(255);
+      text("YOU LOST", 400, 400);  
+      textSize(15);
+      text("Refresh to play again :)", 400, 450);
+    }
+    if (ammo == 0)
     {
       noLoop();
       textAlign(CENTER);
@@ -66,6 +78,7 @@ public void draw()
   fill(0, 255, 0);
   text("Health: " + health, 85, 30);
   text("Score: " + score, 80, 60);
+  text("Ammo: " + ammo, 87, 90);
 
   for (int i = 0; i < bob.length; i++)
   {
@@ -105,6 +118,7 @@ public void draw()
     if (key == ' ')
     {
       shot.add(new Bullet(jake));
+      ammo--;
     }
   }
 
