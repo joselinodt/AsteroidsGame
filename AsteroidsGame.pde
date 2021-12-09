@@ -1,9 +1,9 @@
-public Spaceship jake = new Spaceship();
-public Star[] bob;
-public ArrayList <Asteroids> rock;
-public ArrayList <Bullet> shot = new ArrayList <Bullet>();
-public int score = 0;
-public int health = 100;
+Spaceship jake = new Spaceship();
+Star[] bob;
+ArrayList <Asteroids> rock;
+ArrayList <Bullet> shot = new ArrayList <Bullet>();
+int score = 0;
+int health = 100;
 public void setup() 
 {
   size(800, 800);
@@ -13,7 +13,7 @@ public void setup()
     bob[i] = new Star();
   }
   rock = new ArrayList <Asteroids>();
-  for (int i = 0; i < 25; i++)
+  for (int i = 0; i < 30; i++)
   {
     rock.add(new Asteroids());
   }
@@ -21,52 +21,52 @@ public void setup()
 public void draw() 
 {
   background(0);
+  frameRate(80);
   for (int i = 0; i < rock.size(); i++)
   {
     rock.get(i).move();
     rock.get(i).show();
     float d = dist((float)jake.getX()+2, (float)jake.getY()+2, (float)rock.get(i).getX(), (float)rock.get(i).getY());
-    if (d < 25) {
+    if (d < 19) {
       rock.remove(i);
       health-=10;
     }
-    
-    for(int k = 0; k < rock.size(); k++)
-      for(int l = 0; l < shot.size(); l++)
+    for (int k = 0; k < rock.size(); k++)
+      for (int l = 0; l < shot.size(); l++)
       {
-        if(dist((float)rock.get(k).getX(), (float)rock.get(k).getY(), (float)shot.get(l).getX(), (float)shot.get(l).getY()) < 25)
+        if (dist((float)rock.get(k).getX(), (float)rock.get(k).getY(), (float)shot.get(l).getX(), (float)shot.get(l).getY()) < 19)
         {
           rock.remove(k);
           shot.remove(l);
           score+=5;
           break;
         }
-          
       }
-    if(health == 0)
+    if (health == 0)
     {
       noLoop();
       textAlign(CENTER);
       textSize(50);
       fill(255);
       text("YOU LOST", 400, 400);  
+      textSize(15);
+      text("Refresh to play again :)", 400, 450);
     }
-    if(rock.size() == 0)
+    if (rock.size() == 0)
     {
       noLoop();
       textAlign(CENTER);
       textSize(50);
       fill(255);
-      text("YOU WON", 400,400);
+      text("YOU WON", 400, 400);
     }
-    
   }
   textAlign(CENTER);
   textSize(30);
-  fill(255);
-  text("Health: " + health, 85,30);
+  fill(0, 255, 0);
+  text("Health: " + health, 85, 30);
   text("Score: " + score, 80, 60);
-  
+
   for (int i = 0; i < bob.length; i++)
   {
     bob[i].show();
@@ -76,12 +76,11 @@ public void draw()
     rock.get(i).show();
     rock.get(i).move();
   }
-  for(int i = 0; i < shot.size(); i++)
+  for (int i = 0; i < shot.size(); i++)
   {
     shot.get(i).move();
-    
   }
-  for(int i = 0; i < shot.size(); i++){
+  for (int i = 0; i < shot.size(); i++) {
     shot.get(i).show();
   }
   if (keyPressed) {
@@ -103,19 +102,17 @@ public void draw()
     } else {
       jake.traveling(false);
     }
-    if(key == ' ')
+    if (key == ' ')
     {
-     shot.add(new Bullet(jake));
+      shot.add(new Bullet(jake));
     }
   }
 
   jake.move();
   jake.show();
-  }
+}
 
 public void mousePressed() {
   if (mousePressed && mouseButton == RIGHT)
     jake.hyperspace();
 }
-
-
