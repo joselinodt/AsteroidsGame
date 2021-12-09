@@ -1,5 +1,5 @@
 class Bullet extends Floater {
-  int myColor;
+  protected int myColor;
   public Bullet(Spaceship theShip) {
     myCenterX = theShip.getX();
     myCenterY = theShip.getY();
@@ -20,7 +20,7 @@ class Bullet extends Floater {
     fill(255, 0, 0);
     strokeWeight(2);
     stroke(255,0,0);
-    line(0, 0, 20, 0);
+    ellipse(0,0,3,3);
     rotate(-1 * dRadians);
     stroke(255);
     translate(-1 * (float)myCenterX, -1 * (float)myCenterY);
@@ -37,5 +37,4 @@ class Bullet extends Floater {
   public double getXspeed(){return myXspeed;}
   public double getYspeed(){return myYspeed;}
 }
-
  
