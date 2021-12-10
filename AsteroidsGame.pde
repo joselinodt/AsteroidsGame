@@ -14,7 +14,7 @@ public void setup()
     bob[i] = new Star();
   }
   rock = new ArrayList <Asteroids>();
-  for (int i = 0; i < 30; i++)
+  for (int i = 0; i < 55; i++)
   {
     rock.add(new Asteroids());
   }
