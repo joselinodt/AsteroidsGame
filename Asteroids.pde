@@ -1,7 +1,7 @@
 public class Asteroids extends Floater
 {
-  double rotSpeed, mySize;
-  int myColor;
+  private double rotSpeed, mySize;
+  private int myColor;
   public Asteroids(){
     corners = 5;
     xCorners = new int[]{-11,7,13,6,(int)(Math.random()*22)-22};
