@@ -1,11 +1,12 @@
 public class Asteroids extends Floater
 {
-  protected double rotSpeed, mySize;
-  protected int myColor;
+  double rotSpeed, mySize;
+  int myColor;
   public Asteroids(){
     corners = 5;
-    xCorners = new int[]{(int)(Math.random()*12)-11,7,13,6,(int)(Math.random()*22)-22};
-    yCorners = new int[]{(int)(Math.random()*9)-8,-8,0,(int)(Math.random()*10),8};
+    xCorners = new int[]{-11,7,13,6,(int)(Math.random()*22)-22};
+    yCorners = new int[]{-8,-8,0,(int)(Math.random()*10),8};
+    myColor = color(255);
     myCenterX = (float)(Math.random()*800);
     myCenterY = (float)(Math.random()*800);
     myXspeed = 1;
@@ -13,7 +14,7 @@ public class Asteroids extends Floater
     myPointDirection = 0; 
     rotSpeed = 1;
     mySize = 20;
-    myColor = color(255);
+    myColor = color(178,178,178);
   }
   public double getX(){
     return myCenterX;
