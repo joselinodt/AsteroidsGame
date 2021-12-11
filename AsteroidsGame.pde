@@ -2,9 +2,9 @@ Spaceship jake = new Spaceship();
 Star[] bob;
 ArrayList <Asteroids> rock;
 ArrayList <Bullet> shot = new ArrayList <Bullet>();
-int score = 0;
-int health = 100;
-int ammo = 300;
+public int score = 0;
+public int health = 100;
+public int ammo = 300;
 public void setup() 
 {
   size(800, 800);
