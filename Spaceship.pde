@@ -1,7 +1,7 @@
 public class Spaceship extends Floater  
 {   
-    boolean moving, turningLeft, turningRight;
-    int teleport, myColor;
+    private boolean moving, turningLeft, turningRight;
+    private int teleport, myColor;
     public Spaceship(){
      
       corners = 4;
